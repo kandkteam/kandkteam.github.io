@@ -1,0 +1,21 @@
+{
+  "name": "next-cljs",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.54.7",
+    "shadow-cljs": "2.6.10"
+  },
+  "scripts": {
+    "watch": "shadow-cljs watch site",
+    "release": "shadow-cljs release site",
+    "sass-watch": "sass --watch styles/styles.scss website/styles/styles.css",
+    "sass-build": "sass --watch styles/styles.scss website/styles/styles.css",
+    "deploy": "cd website/ && npm run deploy && cd .. && git subtree push --prefix website/out origin gh-pages"
+  },
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
