@@ -13,4 +13,4 @@
             [:div.flex.column.vh100
              [:> Link
               {:href "/articles/main"}
-              [:a "статья 6"]]]))
+              [:a "статья 7"]]]))
