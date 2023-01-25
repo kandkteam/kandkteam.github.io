@@ -10,8 +10,9 @@
     "watch": "shadow-cljs watch site",
     "release": "shadow-cljs release site",
     "sass-watch": "sass --watch styles/styles.scss website/styles/styles.css",
-    "sass-build": "sass --watch styles/styles.scss website/styles/styles.css",
-    "deploy": "cd website/ && npm run deploy && cd .. && git subtree push --prefix website/out origin gh-pages"
+    "sass-build": "sass styles/styles.scss website/styles/styles.css",
+    "build-root": "npm run release && npm run sass-build",
+    "deploy": "npm run build-root && cd website/ && npm run deploy && cd .. && git push origin `git subtree split --prefix website/out master`:gh-pages --force"
   },
   "dependencies": {
     "create-react-class": "^15.6.3",

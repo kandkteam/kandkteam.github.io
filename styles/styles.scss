@@ -1,9 +1,20 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import 'tabs';
+@import 'mixins';
+
+$font-family: "Inter", sans-serif;
+$text-white: #fff;
+$text-black: #000000;
+$text-dark: #222222;
+$background-color: #7763ff;
+
+html, body {
+  scroll-behavior: smooth;
+  background: $background-color;
+  color: $text-white;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: $font-family;
 }
 
 a {
@@ -15,12 +26,642 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.main {
+  margin: 0 auto;
+  width: 1440px;
+  overflow: hidden;
+
+  @include small-down {
+    width: 100%;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+.head {
+  padding-top: 168px;
+  height: 100vh;
+  position: relative;
+
+//   @include small-down {
+//     h2 {
+//       font-size: 77px;
+//     }
+//
+//     h1 {
+//       font-size: 77px;
+//     }
+//   }
+}
+
+.logo-vertical {
+  transform: scale(0.8);
+}
+
+.if-not-mobile {
+  & > *:first-child {
+    @include small-down {
+      display: none;
+    }
+  }
+
+  & > *:nth-child(2) {
+    display: none;
+
+    @include small-down {
+      display: block;
+    }
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 45px;
+}
+
+.bottom-center {
+  position: absolute;
+  bottom: 10px;
+}
+
+.we-provide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+
+  text-align: center;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+  margin: auto;
+}
+
+.drop-140 {
+  margin-top: 140px;
+}
+
+.full-service {
+  margin-top: 56px;
+  font-weight: 100;
+  font-size: 168px;
+  line-height: 203px;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  text-align: center;
+
+  @include small-down {
+    font-size: 88px;
+    line-height: 106px;
+  }
+}
+
+h1 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 156px;
+  line-height: 189px;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+
+  @include small-down {
+    font-size: 77px;
+    line-height: 106px;
+  }
+}
+
+h4 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 136px;
+  line-height: 165px;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+
+  @include small-down {
+    font-size: 77px;
+    line-height: 106px;
+  }
+}
+
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @include small-down {
+    margin: 0 32px;
+    margin-top: 50px;
+  }
+
+  .content-pic {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 48px 60px 60px;
+    gap: 46px;
+
+    width: 100%;
+
+    background: #ffffff;
+    border-radius: 48px;
+
+    font-weight: 400;
+    font-size: 32px;
+
+    color: #121212;
+
+    & > * {
+      flex: 1;
+    }
+
+    @include small-down {
+      flex-direction: column-reverse;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+
+      @include small-down {
+        width: 100%;
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 58px;
+
+        letter-spacing: 0.115em;
+        text-transform: uppercase;
+
+        color: #000000;
+      }
+
+      span {
+        line-height: 39px;
+      }
+    }
+
+    .image {
+      position: relative;
+      align-self: center;
+
+      @include small-down {
+        min-height: 300px;
+      }
+
+      img {
+        @include small-down {
+          width: 100vw;
+          height: unset;
+          max-width: calc(1080px / 1);
+        }
+
+
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+ul.breadcrumbs {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.115em;
+  color: #000000;
+}
+
+ul.breadcrumbs > li + li::before {
+  content: "→";
+  padding: 0 8px;
+}
+
+.read-more {
+  width: fit-content;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #7763ff;
+}
+
+.honeycomb {
+  margin: 56px auto;
+  text-align: center;
+  margin-bottom: 200px;
+  user-select: none;
+
+  font-size: 12px;
+
+  img {
+    image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges; /* Firefox                        */
+    image-rendering: -o-crisp-edges; /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+  }
+
+  .hexagon {
+    position: relative;
+    display: inline-block;
+    /* left/right margin approx. 25% of .hexagon width + spacing */
+    margin: 6px 56px;
+
+    @include small-down {
+      margin: 6px calc(120px * 0.25);
+    }
+
+    z-index: 99;
+    text-align: center;
+  }
+
+  .hexagon {
+    /* easy way: height is width * 1.732
+    actual formula is 2*(width/(2*Math.tan(Math.PI/6)))
+    remove border-radius for sharp corners on hexagons */
+    width: 188px;
+    height: 326px;
+
+    @include small-down {
+      width: 150px;
+      height: calc(150px * 1.732);
+    }
+  }
+
+  .hexagon:nth-child(even) {
+    /* top approx. 50% of .hexagon height + spacing */
+    top: 163px;
+
+    @include small-down {
+      top: calc(150px * 1.732 * 0.5);
+    }
+  }
+
+  .hexanone {
+    position: relative;
+    display: inline-block;
+
+    width: 188px;
+    height: 326px;
+
+    @include small-down {
+      width: 150px;
+      height: calc(150px * 1.732);
+    }
+
+    margin: 6px 56px;
+
+    @include small-down {
+      margin: 6px calc(120px * 0.25);
+    }
+  }
+
+  .hexanone:nth-child(even) {
+    top: 170px;
+  }
+
+  .hexagontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    line-height: 1.2;
+    z-index: 100;
+
+    & > div {
+      display: inline-block;
+    }
+
+    &.flag {
+      overflow: hidden;
+      width: 262%;
+      z-index: 98;
+    }
+  }
+}
+
+.contact-us {
+  margin: 0 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 35px 40px;
+  gap: 20px;
+  font-size: 38px;
+
+  background: #FFFFFF;
+  color: $text-dark;
+  border-radius: 48px;
+
+  @include small-down {
+    margin: 0 32px;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    font-size: 0.7em;
+    color: $text-dark;
+  }
+
+  .privacy {
+    font-weight: 400;
+    font-size: 0.6em;
+    line-height: 36px;
+    color: #121212;
+  }
+
+  input, textarea {
+    resize: none;
+    font-weight: 400;
+    font-size: 0.7em;
+    line-height: 46px;
+
+    color: #222222;
+    padding: 12px 24px;
+
+    width: 100%;
+
+    background: #FFFFFF;
+    border: 2px solid #888888;
+    border-radius: 27px;
+  }
+
+  textarea:focus, input:focus{
+      outline: none;
+  }
+
+  button {
+    padding: 25px 36px;
+    gap: 8px;
+
+    background: #7763FF;
+    border: 4px solid #7763FF;
+    border-radius: 27px;
+
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+
+    text-align: center;
+    letter-spacing: 0.115em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    cursor: pointer;
+  }
+}
+
+.footer {
+  margin-top: 64px;
+  margin-bottom: 86px;
+
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+
+  text-align: center;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+
+  color: $text-white;
+
+  .company-info {
+
+    margin: 156px auto;
+
+    h1 {
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 39px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 27px;
+
+      text-align: center;
+      letter-spacing: 0.115em;
+
+      color: #FFFFFF;
+    }
+  }
+}
+
+.checkbox {
+  display: inline-block;
+
+  input {
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+
+  .checkbox-label {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 24px;
+    user-select: none;
+
+    background: #FFFFFF;
+    border: 2px solid #222222;
+    border-radius: 27px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+
+    text-align: center;
+    cursor: pointer;
+  }
+
+  input:checked + .checkbox-label {
+    background: #7763FF;
+    border: 2px solid #7763FF;
+    border-radius: 27px;
+    color: $text-white;
+  }
+}
+
+.tags-container {
+  max-width: 100%;
+  $margin-val: 8px;
+
+  margin-left: -$margin-val;
+  margin-top: -$margin-val;
+
+  & > * {
+    margin-left: $margin-val;
+    margin-top: $margin-val;
+  }
+}
+
+.tech-stack-container {
+  margin: 0 50px;
+  margin-top: 50px;
+
+  @include small-down {
+    margin: 0 32px;
+  }
+
+  .tech-stack {
+    display: grid;
+    gap: 40px;
+
+    &.lang {
+      grid-template-areas:
+        "clj clj clj cljs python python"
+        "clj clj clj js python python"
+        "clj clj clj dart dart c"
+        "ts php php dart dart c-sharp";
+
+        @include small-down {
+          grid-template-areas:
+            "clj clj clj"
+            "clj clj clj"
+            "clj clj clj"
+            "ts php php"
+            "cljs python python"
+            "js python python"
+            "dart dart c"
+            "dart dart c-sharp";
+
+          .clj {
+            height: 720px;
+          }
+        }
+    }
+
+    &.framework {
+      grid-template-areas:
+        "django express express angular flutter flutter"
+        "nodejs nodejs vue flask flutter flutter"
+        "wp next next react react gatsby"
+        "shopify shopify . react react .";
+
+      @include small-down {
+        grid-template-areas:
+          "django express express"
+          "nodejs nodejs vue"
+          "wp next next"
+          "shopify shopify ."
+          "angular flutter flutter"
+          "flask flutter flutter"
+          "react react gatsby"
+          "react react .";
+      }
+    }
+
+    &.db {
+      grid-template-areas:
+        "elasticsearch elasticsearch hasura hasura postgresql postgresql"
+        "elasticsearch elasticsearch mongodb mongodb postgresql postgresql"
+        "datahike datahike datahike graphql mysql mysql"
+        "datahike datahike datahike sphinx sphinx datomic";
+
+      @include small-down {
+        grid-template-areas:
+          "elasticsearch elasticsearch hasura"
+          "elasticsearch elasticsearch mongodb"
+          "datahike datahike datahike"
+          "datahike datahike datahike"
+          "mysql mysql mysql"
+          "mysql mysql mysql"
+          "graphql postgresql postgresql"
+          "sphinx sphinx datomic";
+
+        .datahike, .mysql {
+          height: 464px;
+        }
+      }
+    }
+
+    &.design {
+      grid-template-areas:
+        "figma figma figma xd ps ai"
+        "figma figma figma sketch sketch sketch"
+        "figma figma figma sketch sketch sketch"
+        "ad    axure axure sketch sketch sketch";
+
+      @include small-down {
+        grid-template-areas:
+          "figma figma figma"
+          "figma figma figma"
+          "figma figma figma"
+          "ad    axure axure"
+          "xd    ps    ai"
+          "sketch sketch sketch"
+          "sketch sketch sketch"
+          "sketch sketch sketch";
+
+        .figma, .sketch {
+          height: 464px;
+        }
+      }
+    }
+
+    & > * {
+      background: #fff;
+      border-radius: 48px;
+      min-height: 193px;
+      position: relative;
+
+      svg, img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .ts, .ps, .xd, .ai, .ad {
+      background: none;
+    }
+
+    .figma {
+      min-height: 674px;
+    }
   }
 }
